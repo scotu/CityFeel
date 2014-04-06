@@ -137,6 +137,7 @@ INSTALLED_APPS = (
     'south',
     'compressor',
     'debug_toolbar',
+    'django_extensions',
 
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
