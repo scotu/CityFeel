@@ -67,8 +67,8 @@
                 <div class="row filter" id="sentiment-media">
                 {% for a in areas %}
                 {% for e in a.entries %}
-                    <div class="area{{ a.area_id }} col-sm-3 doge feeling {% if e.classification == 'pos' %}up{% endif %}{% if e.classification == 'neg' %}down{% endif %}">
-                        <div class="media {% if e.classification == 'pos' %}positive{% endif %}{% if e.classification == 'neg' %}negative{% endif %}">
+                    <div class="area{{ a.area_id }} col-sm-3 doge feeling {% if e.classification == 'pos' %}up{% endif %}{% if e.classification == 'neg' %}down{% endif %}{% if e.classification == 'neutral' %}middle{% endif %}">
+                        <div class="media {% if e.classification == 'pos' %}positive{% endif %}{% if e.classification == 'neg' %}negative{% endif %}{% if e.classification == 'neutral' %}middle{% endif %}">
                             <a class="pull-left" href="#">
                                 <span class="glyphicon glyphicon-user white" style="font-size: 20px"></span>
                             </a>
