@@ -21,5 +21,5 @@ def index(request):
     return render_to_response('index.html', context_instance=RequestContext(request))
 
 def map(request):
-    context = {'classification': EntryClassification.objects.exclude(label='neutral', entry__lat__isnull=True)}
+    context = {'classification': EntryClassification.objects.filter(label='neg').exclude(entry__lat__isnull=True)}
     return render_to_response('map.html', context, context_instance=RequestContext(request))

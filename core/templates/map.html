@@ -64,13 +64,6 @@
             // Adding 500 Data Points
             var map, pointarray, heatmap;
 
-            var positiveData = [
-                {% for c in classification %}
-                    {% if c.label == 'pos' and c.entry.lat %}
-                        new google.maps.LatLng({{ c.entry.lat }}, {{ c.entry.long }}),// {{ c.entry.id }}
-                    {% endif %}
-                {% endfor %}
-            ];
             var negativeData = [
                 {% for c in classification %}
                     {% if c.label == 'neg' and c.entry.lat %}
