@@ -56,9 +56,9 @@
                     <div id="filters" class="col-sm-12 head-controls">
                         <p>Filter by Sentiment</p>
                         <button class="btn btn-default btn-embossed" data-filter="*">All Zones</button>
-                        <button class="btn btn-default btn-embossed" data-filter=".up">North San Francisco</button>
-                        <button class="btn btn-default btn-embossed" data-filter=".down">22nd Street</button>
-                        <button class="btn btn-default btn-embossed">South San Francisco</button>
+                        <button class="btn btn-default btn-embossed" data-filter=".up">Positive</button>
+                        <button class="btn btn-default btn-embossed" data-filter=".down">Negative</button>
+                        <button class="btn btn-default btn-embossed" data-filter=".middle">Neutral</button>
                     </div>
 
                     <div id="filter-zone" class="col-sm-6 head-controls">
@@ -69,7 +69,7 @@
                         {% endfor %}
                     </div>
                 </div>
-                
+
                 <div class="row filter" id="sentiment-media">
                 {% for a in areas %}
                 {% for e in a.entries %}
