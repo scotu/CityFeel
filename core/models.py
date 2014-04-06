@@ -59,6 +59,7 @@ def save_tweets(area, origin, tweet):
                 'long': coord_long
             }
         )
+        eq.author = tweet['user']['screen_name']
         eq.save()
         area.entryqueue_set.add(eq)
         result = tweet['id']
@@ -71,6 +72,8 @@ def save_tweets(area, origin, tweet):
                 'author_id': tweet['user']['id']
             }
         )
+        eq.author = tweet['user']['screen_name']
+        eq.save()
         area.entryqueue_set.add(eq)
         result = tweet['id']
     print( '@%s tweeted: %s' % ( tweet['user']['screen_name'], tweet['text'] ) )
