@@ -63,79 +63,19 @@
                 </div>
 
                 <div class="row filter" id="sentiment-media">
-
-                    <div class="col-sm-3 doge feeling up">
-                        <div class="media positive">
+{% for e in eq_set %}
+                    <div class="col-sm-3 doge feeling {% if e.classification == 'pos' %}up{% endif %}{% if e.classification == 'neg' %}down{% endif %}">
+                        <div class="media {% if e.classification == 'pos' %}positive{% endif %}{% if e.classification == 'neg' %}negative{% endif %}">
                             <a class="pull-left" href="#">
                                 <span class="glyphicon glyphicon-user white" style="font-size: 20px"></span>
                             </a>
                             <div class="media-body">
                                 <h4 class="media-heading">@nicoladavenezia</h4>
-                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisqu.
+                                {{ e.message }}.
                             </div>
                         </div>
                     </div>
-
-                    <div class="col-sm-3 doge feeling down">
-                        <div class="media negative">
-                            <a class="pull-left" href="#">
-                                <span class="glyphicon glyphicon-user white" style="font-size: 20px"></span>
-                            </a>
-                            <div class="media-body">
-                                <h4 class="media-heading">@nicoladavenezia</h4>
-                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-3 doge feeling down">
-                        <div class="media negative">
-                            <a class="pull-left" href="#">
-                                <span class="glyphicon glyphicon-user white" style="font-size: 20px"></span>
-                            </a>
-                            <div class="media-body">
-                                <h4 class="media-heading">@nicoladavenezia</h4>
-                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus sceleriucibus.
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-3 doge feeling up">
-                        <div class="media positive">
-                            <a class="pull-left" href="#">
-                                <span class="glyphicon glyphicon-user white" style="font-size: 20px"></span>
-                            </a>
-                            <div class="media-body">
-                                <h4 class="media-heading">@nicoladavenezia</h4>
-                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.us odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-3 doge feeling down">
-                        <div class="media negative">
-                            <a class="pull-left" href="#">
-                                <span class="glyphicon glyphicon-user white" style="font-size: 20px"></span>
-                            </a>
-                            <div class="media-body">
-                                <h4 class="media-heading">@nicoladavenezia</h4>
-                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin 
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-3 doge feeling down">
-                        <div class="media negative">
-                            <a class="pull-left" href="#">
-                                <span class="glyphicon glyphicon-user white" style="font-size: 20px"></span>
-                            </a>
-                            <div class="media-body">
-                                <h4 class="media-heading">@nicoladavenezia</h4>
-                                Cras sit amet nibh libero, in gravida nulla. Nulla vel
-                            </div>
-                        </div>
-                    </div>
-
+{% endfor %}
                 </div>
         </div>
 
