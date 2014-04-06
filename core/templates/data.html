@@ -61,21 +61,25 @@
                         <button class="btn btn-default btn-embossed">South San Francisco</button>
                     </div>
                 </div>
-
+{% for a in areas %}
+<p>{{ a.area_id }} {{ a.desc }}</p>
+{% endfor %}
                 <div class="row filter" id="sentiment-media">
-{% for e in eq_set %}
-                    <div class="col-sm-3 doge feeling {% if e.classification == 'pos' %}up{% endif %}{% if e.classification == 'neg' %}down{% endif %}">
+                {% for a in areas %}
+                {% for e in a.entries %}
+                    <div class="area{{ a.area_id }} col-sm-3 doge feeling {% if e.classification == 'pos' %}up{% endif %}{% if e.classification == 'neg' %}down{% endif %}">
                         <div class="media {% if e.classification == 'pos' %}positive{% endif %}{% if e.classification == 'neg' %}negative{% endif %}">
                             <a class="pull-left" href="#">
                                 <span class="glyphicon glyphicon-user white" style="font-size: 20px"></span>
                             </a>
                             <div class="media-body">
                                 <h4 class="media-heading">@nicoladavenezia</h4>
-                                {{ e.message }}.
+                                {{ e.message }}
                             </div>
                         </div>
                     </div>
-{% endfor %}
+                {% endfor %}
+                {% endfor %}
                 </div>
         </div>
 

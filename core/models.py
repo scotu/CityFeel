@@ -21,6 +21,10 @@ class EntryQueue(models.Model):
     class Meta:
         unique_together = ('origin', 'origin_id',)
 
+    def classification(self):
+        classif = self.entryclassification_set.all()[0].label
+        return classif
+
 
 class EntryClassification(models.Model):
     entry = models.ForeignKey('EntryQueue')
@@ -81,9 +85,6 @@ class Area(models.Model):
     lat = models.FloatField(blank=True)#
     long = models.FloatField(blank=True)#
     rad = models.PositiveIntegerField(blank=True)
-
-    def get_absolute_url(self):
-        return reverse('data', args=(str(self.id),))
 
     def __unicode__(self):
         return self.description

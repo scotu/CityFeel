@@ -14,7 +14,7 @@ urlpatterns = patterns('',
 
     url(r'^$', views.index, name="index"),
     url(r'^map/$', views.map, name="map"),
-    url(r'^data/(\d+)/$', views.data, name="data"),
+    url(r'^data/$', views.data, name="data"),
     url(r'^ohhhhh/$', views.ohhhhh),
     url(r'^admin/', include(admin.site.urls)),
 )
