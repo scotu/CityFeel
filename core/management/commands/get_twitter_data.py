@@ -2,6 +2,7 @@ from django.core.management.base import BaseCommand
 from django.conf import settings
 
 import logging
+from core.models import Area, SourceForArea
 
 
 logger = logging.getLogger('retrieve_tweets')
@@ -12,5 +13,6 @@ class Command(BaseCommand):
     help = 'no arguments required'
 
     def handle(self, *args, **options):
-        #users = User.objects.all()
-        pass
+        s_list = SourceForArea.objects.all()
+        for s in s_list:
+            s.fetch_twitter_entries()
