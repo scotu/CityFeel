@@ -35,3 +35,6 @@ atlassian-ide-plugin.xml
 com_crashlytics_export_strings.xml
 local.py
 sample_dict_tweet.py
+
+# OS X Files
+.DS_Store
