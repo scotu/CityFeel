@@ -1,3 +1,4 @@
+from django.core.urlresolvers import reverse
 from django.db import models
 from TwitterSearch import TwitterSearch, TwitterSearchOrder, TwitterSearchException
 from django.conf import settings
@@ -80,6 +81,9 @@ class Area(models.Model):
     lat = models.FloatField(blank=True)#
     long = models.FloatField(blank=True)#
     rad = models.PositiveIntegerField(blank=True)
+
+    def get_absolute_url(self):
+        return reverse('data', args=(str(self.id),))
 
     def __unicode__(self):
         return self.description

@@ -8,23 +8,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 
-        <link rel="shortcut icon" href="flat-ui/images/favicon.ico">
-        <link rel="stylesheet" href="flat-ui/bootstrap/css/bootstrap.css">
-        <link rel="stylesheet" href="flat-ui/bootstrap/css/bootstrap-responsive.css">
-        <link rel="stylesheet" href="flat-ui/css/flat-ui.css">
+        <link rel="shortcut icon" href="{{ STATIC_URL }}flat-ui/images/favicon.ico">
+        <link rel="stylesheet" href="{{ STATIC_URL }}flat-ui/bootstrap/css/bootstrap.css">
+        <link rel="stylesheet" href="{{ STATIC_URL }}flat-ui/bootstrap/css/bootstrap-responsive.css">
+        <link rel="stylesheet" href="{{ STATIC_URL }}flat-ui/css/flat-ui.css">
 
-        <link rel="stylesheet" href="common-files/css/icon-font.css">
-        <link rel="stylesheet" href="common-files/css/animations.css">
+        <link rel="stylesheet" href="{{ STATIC_URL }}common-files/css/icon-font.css">
+        <link rel="stylesheet" href="{{ STATIC_URL }}common-files/css/animations.css">
 
         <!-- content -->
-        <link rel="stylesheet" href="ui-kit/ui-kit-content/style.css">
+        <link rel="stylesheet" href="{{ STATIC_URL }}ui-kit/ui-kit-content/style.css">
         <!-- crew -->
-        <link rel="stylesheet" href="ui-kit/ui-kit-crew/style.css">
+        <link rel="stylesheet" href="{{ STATIC_URL }}ui-kit/ui-kit-crew/style.css">
         <!-- footer -->
-        <link rel="stylesheet" href="ui-kit/ui-kit-footer/style.css">
+        <link rel="stylesheet" href="{{ STATIC_URL }}ui-kit/ui-kit-footer/style.css">
         <!-- header -->
-        <link rel="stylesheet" href="ui-kit/ui-kit-header/style.css">
-        <link rel="stylesheet" href="custom-styles.css">
+        <link rel="stylesheet" href="{{ STATIC_URL }}ui-kit/ui-kit-header/style.css">
+        <link rel="stylesheet" href="{{ STATIC_URL }}custom-styles.css">
     </head>
 
     <body>
@@ -40,9 +40,9 @@
                             </div>
                         <div class="navbar-collapse collapse">
                             <ul class="nav">
-                                <li><a href="index.html">Home</a></li>
+                                <li><a href="{% url 'index' %}">Home</a></li>
                                 <li class="active"><a href="#">Data</a></li>
-                                <li><a href="map.html">Map</a></li>
+                                <li><a href="{% url 'map' %}">Map</a></li>
                             </ul>
                         </div>
                         </div>
@@ -140,12 +140,12 @@
         </div>
 
         <!-- Placed at the end of the document so the pages load faster -->
-        <script src="common-files/js/jquery-1.11.0.js"></script>
-        <script src="common-files/js/bootstrap.min.js"></script>
-        <script src="common-files/js/modernizr.custom.js"></script>
-        <script src="common-files/js/page-transitions.js"></script>
-        <script src="common-files/js/startup-kit.js"></script>
-        <script src="common-files/js/isotope.pkgd.js"></script>
+        <script src="{{ STATIC_URL }}common-files/js/jquery-1.11.0.js"></script>
+        <script src="{{ STATIC_URL }}common-files/js/bootstrap.min.js"></script>
+        <script src="{{ STATIC_URL }}common-files/js/modernizr.custom.js"></script>
+        <script src="{{ STATIC_URL }}common-files/js/page-transitions.js"></script>
+        <script src="{{ STATIC_URL }}common-files/js/startup-kit.js"></script>
+        <script src="{{ STATIC_URL }}common-files/js/isotope.pkgd.js"></script>
 
         <script type="text/javascript">
             var $container = $('#sentiment-media');
