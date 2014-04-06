@@ -54,16 +54,22 @@
             <div class="container">
                 <div class="row">
                     <div id="filters" class="col-sm-12 head-controls">
-                        <p>Filter by Zone</p>
+                        <p>Filter by Sentiment</p>
                         <button class="btn btn-default btn-embossed" data-filter="*">All Zones</button>
                         <button class="btn btn-default btn-embossed" data-filter=".up">North San Francisco</button>
                         <button class="btn btn-default btn-embossed" data-filter=".down">22nd Street</button>
                         <button class="btn btn-default btn-embossed">South San Francisco</button>
                     </div>
+
+                    <div id="filter-zone" class="col-sm-6 head-controls">
+                        <p>Filter by Area</p>
+                        <button class="btn btn-default btn-embossed" data-filter="*">All Areas</button>
+                        {% for a in areas %}
+                            <button class="btn btn-default btn-embossed" data-filter=".area{{ a.area_id }}">{{ a.desc }}</button>
+                        {% endfor %}
+                    </div>
                 </div>
-{% for a in areas %}
-<p>{{ a.area_id }} {{ a.desc }}</p>
-{% endfor %}
+                
                 <div class="row filter" id="sentiment-media">
                 {% for a in areas %}
                 {% for e in a.entries %}
@@ -103,6 +109,12 @@
 
         <script type="text/javascript">
             $('#filters').on( 'click', 'button', function() {
+                var filterValue = $( this ).attr('data-filter');
+
+                $container.isotope({ filter: filterValue });
+            });
+
+            $('#filter-zone').on( 'click', 'button', function() {
                 var filterValue = $( this ).attr('data-filter');
 
                 $container.isotope({ filter: filterValue });

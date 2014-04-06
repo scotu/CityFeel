@@ -42,6 +42,10 @@ span.glyphicon-link {
 	background-color: #E74C3C;
 }
 
+.media.middle {
+	background-color: #7f8c8d;
+}
+
 .white, .white a {
   color: #fff;
 }
