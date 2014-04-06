@@ -55,6 +55,7 @@ def save_tweets(area, origin, tweet):
             }
         )
         eq.save()
+        area.entryqueue_set.add(eq)
         result = tweet['id']
     else:
         eq, created = EntryQueue.objects.get_or_create(
@@ -65,8 +66,7 @@ def save_tweets(area, origin, tweet):
                 'author_id': tweet['user']['id']
             }
         )
-        if not created:
-            area.entryqueue_set.add(eq)
+        area.entryqueue_set.add(eq)
         result = tweet['id']
     print( '@%s tweeted: %s' % ( tweet['user']['screen_name'], tweet['text'] ) )
     # except Exception as ex:

@@ -16,7 +16,7 @@ class Command(BaseCommand):
     help = 'no arguments required'
 
     def handle(self, *args, **options):
-        e_list = EntryQueue.objects.filter(analysis=False)[:100]
+        e_list = EntryQueue.objects.filter(analysis=False)[:500]
         for e in e_list:
             params = {'text': e.message}
             if 'mashape' == 'mashape':
@@ -30,16 +30,17 @@ class Command(BaseCommand):
 
                 if ar.counter > 0:
                     resp = requests.post('https://japerk-text-processing.p.mashape.com/sentiment/', data=params, headers=headers)
+                    print e.message
                     ar.counter -= 1
                     ar.save()
                 else:
                     print "no api calls available"
                     return
 
-            else:
-                ar = ApiRequests.objects.get(name='textprocessing')
-                resp = requests.get('http://text-processing.com/api/sentiment/', params=params)
-                # TODO:
+            # else:
+            #     ar = ApiRequests.objects.get(name='textprocessing')
+            #     resp = requests.get('http://text-processing.com/api/sentiment/', params=params)
+            #     # TODO:
             j = resp.json()
             EntryClassification.objects.create(
                 entry=e,
