@@ -79,7 +79,7 @@
                                 <span class="glyphicon glyphicon-user white" style="font-size: 20px"></span>
                             </a>
                             <div class="media-body">
-                                <h4 class="media-heading">@nicoladavenezia</h4>
+                                <h4 class="media-heading">{% if e.author %}@{{ e.author }}{% endif %}</h4>
                                 {{ e.message }}
                             </div>
                         </div>
